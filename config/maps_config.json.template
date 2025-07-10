@@ -1,0 +1,13 @@
+{
+  "maps": {
+    "Example Map": {
+      "filename": "example_map.jpg",
+      "realm": "Example Realm",
+      "official_name": "Example Official Name"
+    }
+  },
+  "placeholders": {
+    "enabled": true,
+    "default_image": "placeholder_map.jpg"
+  }
+}

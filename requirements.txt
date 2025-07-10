@@ -1,0 +1,22 @@
+# DbD Communication App Requirements
+
+# Core GUI and imaging
+Pillow>=10.0.0
+tkinter-tooltip>=2.2.0
+
+# OCR functionality  
+pytesseract>=0.3.10
+pyautogui>=0.9.54
+
+# Text-to-speech
+pyttsx3>=2.90
+
+# Keyboard input handling
+keyboard>=0.13.5
+
+# Additional utilities
+pathlib2>=2.3.7
+
+# Development and testing
+pytest>=7.4.0
+pytest-cov>=4.1.0

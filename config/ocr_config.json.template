@@ -1,0 +1,17 @@
+{
+  "tesseract_path": "",
+  "screenshot_region": [50, 850, 400, 950],
+  "confidence_threshold": 0.7,
+  "preprocessing": {
+    "contrast_factor": 2.0,
+    "brightness_factor": 1.2,
+    "apply_gaussian_blur": true,
+    "blur_radius": 0.5
+  },
+  "tesseract_config": "--psm 8 -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ",
+  "map_mappings": {
+    "example_map": "Example Map Name",
+    "haddonfield": "Haddonfield",
+    "springwood": "Springwood"
+  }
+}
