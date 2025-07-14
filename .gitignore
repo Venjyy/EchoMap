@@ -77,8 +77,13 @@ maps/*.jpg
 maps/*.png
 maps/*.bmp
 !maps/placeholder_map.jpg
+!maps/haddonfield.jpg
+!maps/springwood.jpg
+!maps/macmillan.jpg
+!maps/autohaven.jpg
+!maps/coldwind.jpg
 
-# Configuration files with sensitive data
+# Configuration files with user-specific data
 config/ocr_config.json
 config/maps_config.json
 

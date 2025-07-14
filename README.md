@@ -1,108 +1,94 @@
-# DbD Communication App (WIP)
+# DbD Communication App
 
-> ⚠️ **Work in Progress** - Este proyecto está en desarrollo inicial
-
-Una aplicación externa para Dead by Daylight que proporciona un sistema de comunicación por sectores para facilitar los "callouts" durante las partidas.
-
-## 🎯 Objetivo del Proyecto
-
-Crear una herramienta **100% externa y segura** que permita:
-- Detección automática de mapas mediante OCR
-- Visualización de mapas con sectores numerados
-- Sistema de callouts rápidos por sectores
-- Compatibilidad con atajos de teclado y clicks
+Una aplicación externa completamente segura para Dead by Daylight que detecta mapas automáticamente mediante OCR y proporciona un sistema de comunicación por sectores para facilitar los "callouts" durante las partidas.
 
 ## ⚠️ Seguridad
 
-Esta aplicación será **completamente externa** al juego:
-- ❌ Sin acceso a memoria del juego
-- ❌ Sin inyección de código
-- ❌ Sin overlays dentro del ejecutable
-- ✅ Solo capturas de pantalla externas
+Esta aplicación es **100% externa** al juego y **NO** interactúa con la memoria del juego, no inyecta código, ni usa overlays dentro del ejecutable de DbD. Es completamente segura y no puede causar baneos.
 
-## 🚧 Estado Actual
+## 🎯 Características
 
-**Implementado:**
-- [x] Estructura base del proyecto
-- [x] Sistema de configuración JSON
-- [x] Interfaz gráfica básica
-- [x] Gestión de mapas placeholder
+- **Detección automática de mapas** mediante OCR (Tesseract)
+- **Interfaz gráfica** con overlays de sectores
+- **Dos modos de sectores**: Reloj de 12 horas o Teclado numérico de 9 zonas
+- **Interacción múltiple**: Clics del mouse o atajos de teclado
+- **Text-to-Speech** opcional para callouts audibles
+- **Feedback visual**: Sectores seleccionados se resaltan en rojo
+- **Configuración JSON** para personalización
+- **Sistema de logs** para debugging
 
-**En Desarrollo:**
-- [ ] Integración OCR completa
-- [ ] Optimización de detección
-- [ ] Sistema TTS
-- [ ] Mapas reales de DbD
+## 📋 Requisitos del Sistema
 
-**Planeado:**
-- [ ] Compilación a ejecutable
-- [ ] Documentación completa
-- [ ] Testing exhaustivo
+- **Python 3.8+**
+- **Windows 10/11** (recomendado)
+- **Tesseract OCR** instalado
+- **Micrófono/Altavoces** para TTS (opcional)
 
-## 📋 Requisitos Planeados
+## 🚀 Instalación
 
-- Python 3.8+
-- Tesseract OCR
-- Windows 10/11
-
-## 📁 Estructura del Proyecto
-
-```
-DbDCom/
-├── src/                   # Código fuente principal
-│   ├── dbd_app.py        # Aplicación principal
-│   ├── ocr_detector.py   # Detector OCR (WIP)
-│   ├── map_manager.py    # Gestor de mapas
-│   ├── gui_interface.py  # Interfaz gráfica
-│   └── tts_handler.py    # Text-to-Speech (WIP)
-├── config/               # Configuraciones (templates)
-├── maps/                 # Directorio para imágenes de mapas
-├── main.py              # Punto de entrada
-├── setup.py             # Script de instalación
-├── demo.py              # Script de demostración
-└── requirements.txt     # Dependencias Python
-```
-
-## 🎮 Concepto de Uso
-
-1. **Detección automática**: La app detectará el mapa al inicio de partida
-2. **Visualización de sectores**: Overlay con sectores numerados (reloj/numpad)
-3. **Callouts rápidos**: Click o tecla → "Killer en sector 3"
-4. **External safe**: Sin riesgo de ban, completamente externa
-
-## 🔧 Configuración Inicial (Cuando esté completo)
-
+### 1. Clonar o descargar el proyecto
 ```bash
-# Instalar dependencias
+git clone https://github.com/Venjyy/EchoMap.git
+cd EchoMap
+```
+
+### 2. Instalar Python Dependencies
+```bash
 pip install -r requirements.txt
+```
 
-# Configurar Tesseract OCR
-# Descargar desde: https://github.com/UB-Mannheim/tesseract/wiki
+### 3. Instalar Tesseract OCR
 
-# Ejecutar aplicación
+**Windows:**
+- Descargar desde: https://github.com/UB-Mannheim/tesseract/wiki
+- Instalar en la ubicación por defecto: `C:\\Program Files\\Tesseract-OCR\\`
+- Agregar al PATH del sistema
+
+**Verificar instalación:**
+```bash
+tesseract --version
+```
+
+### 4. Configurar las imágenes de mapas
+
+Coloca las imágenes de los mapas de DbD en la carpeta `maps/`:
+```
+maps/
+├── haddonfield.jpg
+├── springwood.jpg
+├── macmillan.jpg
+├── autohaven.jpg
+└── ...
+```
+
+**Formatos soportados:** JPG, PNG, BMP
+**Resolución recomendada:** 800x600 píxeles
+
+## 🎮 Uso
+
+### Iniciar la aplicación
+```bash
 python main.py
 ```
 
-## 🎨 Modos de Sectores Planeados
+### Flujo de trabajo básico:
 
-### Modo Reloj (12 sectores)
-- F1-F12 para cada hora del reloj
-- Sector 12 = arriba, crecimiento horario
+1. **Modo automático:**
+   - Hacer clic en "Start Detection"
+   - Jugar DbD normalmente
+   - La app detectará automáticamente el mapa al inicio de la partida
 
-### Modo Numpad (9 sectores)  
-- 1-9 siguiendo layout numérico
-- 7-8-9 (arriba), 4-5-6 (medio), 1-2-3 (abajo)
+2. **Modo manual:**
+   - Seleccionar mapa del dropdown
+   - Hacer clic en "Load Map"
 
-## 🤝 Contribuciones
+3. **Hacer callouts:**
+   - **Mouse:** Hacer clic en los sectores del mapa
+   - **Teclado:** 
+     - Modo reloj: F1-F12
+     - Modo numpad: 1-9
+   - **Feedback visual:** El sector seleccionado se resalta en rojo
 
-El proyecto está en desarrollo inicial. Las contribuciones serán bienvenidas cuando esté más estable.
-
-## 📄 Licencia
-
-MIT License (pendiente de archivo LICENSE)
-
-## ⚠️ Disclaimer
-
-- Proyecto no oficial, no afiliado con Behaviour Interactive Inc.
-- Dead by Daylight es marca registrada de Behaviour Interactive Inc.
-- **Trabajo en progreso** - No apto para uso en producción aún
+### Ejemplo de uso:
+- Clic en sector 3 → Se resalta en rojo + "Sector 3" (TTS si está activo)
+- Tecla F9 → Se resalta en rojo + "Sector 9" (TTS si está activo)
